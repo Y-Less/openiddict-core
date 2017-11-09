@@ -31,7 +31,8 @@ namespace OpenIddict.Models
     /// <summary>
     /// Represents an OpenIddict token.
     /// </summary>
-    public class OpenIddictToken<TKey, TApplication, TAuthorization> where TKey : IEquatable<TKey>
+    public class OpenIddictToken<TKey, TApplication, TAuthorization> : OpenIddictBase<TKey>
+        where TKey : IEquatable<TKey>
     {
         /// <summary>
         /// Gets or sets the application associated with the current token.
@@ -73,13 +74,7 @@ namespace OpenIddict.Models
         /// This property is only used for reference tokens.
         /// </summary>
         public virtual string Hash { get; set; }
-
-        /// <summary>
-        /// Gets or sets the unique identifier
-        /// associated with the current token.
-        /// </summary>
-        public virtual TKey Id { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the status of the current token.
         /// </summary>

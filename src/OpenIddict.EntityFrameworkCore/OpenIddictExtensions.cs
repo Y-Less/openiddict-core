@@ -217,10 +217,12 @@ namespace Microsoft.Extensions.DependencyInjection
             // Entity Framework would throw an exception due to the TKey generic parameter
             // being non-nullable when using value types like short, int, long or Guid.
 
+            builder.Entity<OpenIddictBase<TKey>>().HasKey(id => id.Id);
+
             // Configure the TApplication entity.
             builder.Entity<TApplication>(entity =>
             {
-                entity.HasKey(application => application.Id);
+                //entity.HasKey(application => application.Id);
 
                 entity.HasIndex(application => application.ClientId)
                       .IsUnique();
@@ -251,7 +253,7 @@ namespace Microsoft.Extensions.DependencyInjection
             // Configure the TAuthorization entity.
             builder.Entity<TAuthorization>(entity =>
             {
-                entity.HasKey(authorization => authorization.Id);
+                //entity.HasKey(authorization => authorization.Id);
 
                 entity.Property(authorization => authorization.ConcurrencyToken)
                       .IsConcurrencyToken();
@@ -277,7 +279,7 @@ namespace Microsoft.Extensions.DependencyInjection
             // Configure the TScope entity.
             builder.Entity<TScope>(entity =>
             {
-                entity.HasKey(scope => scope.Id);
+                //entity.HasKey(scope => scope.Id);
 
                 entity.Property(scope => scope.ConcurrencyToken)
                       .IsConcurrencyToken();
@@ -291,7 +293,7 @@ namespace Microsoft.Extensions.DependencyInjection
             // Configure the TToken entity.
             builder.Entity<TToken>(entity =>
             {
-                entity.HasKey(token => token.Id);
+                //entity.HasKey(token => token.Id);
 
                 entity.HasIndex(token => token.Hash)
                       .IsUnique();

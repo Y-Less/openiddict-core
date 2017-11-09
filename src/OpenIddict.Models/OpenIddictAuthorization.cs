@@ -31,7 +31,8 @@ namespace OpenIddict.Models
     /// <summary>
     /// Represents an OpenIddict authorization.
     /// </summary>
-    public class OpenIddictAuthorization<TKey, TApplication, TToken> where TKey : IEquatable<TKey>
+    public class OpenIddictAuthorization<TKey, TApplication, TToken> : OpenIddictBase<TKey>
+        where TKey : IEquatable<TKey>
     {
         /// <summary>
         /// Gets or sets the application associated with the current authorization.
@@ -42,13 +43,7 @@ namespace OpenIddict.Models
         /// Gets or sets the concurrency token.
         /// </summary>
         public virtual string ConcurrencyToken { get; set; } = Guid.NewGuid().ToString();
-
-        /// <summary>
-        /// Gets or sets the unique identifier
-        /// associated with the current authorization.
-        /// </summary>
-        public virtual TKey Id { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the space-delimited scopes
         /// associated with the current authorization.

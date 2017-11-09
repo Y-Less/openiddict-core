@@ -182,9 +182,12 @@ namespace Microsoft.Extensions.DependencyInjection
             // Entity Framework would throw an exception due to the TKey generic parameter
             // being non-nullable when using value types like short, int, long or Guid.
 
+            // Configure the base type.
+            builder.Entity<OpenIddictBase<TKey>>().HasKey(id => id.Id);
+
             // Configure the TApplication entity.
-            builder.Entity<TApplication>()
-                   .HasKey(application => application.Id);
+            //builder.Entity<TApplication>()
+            //       .HasKey(application => application.Id);
 
             builder.Entity<TApplication>()
                    .Property(application => application.ClientId)
@@ -215,8 +218,8 @@ namespace Microsoft.Extensions.DependencyInjection
                    .ToTable("OpenIddictApplications");
 
             // Configure the TAuthorization entity.
-            builder.Entity<TAuthorization>()
-                   .HasKey(authorization => authorization.Id);
+            //builder.Entity<TAuthorization>()
+            //       .HasKey(authorization => authorization.Id);
 
             builder.Entity<TAuthorization>()
                    .Property(authorization => authorization.ConcurrencyToken)
@@ -244,8 +247,8 @@ namespace Microsoft.Extensions.DependencyInjection
                    .ToTable("OpenIddictAuthorizations");
 
             // Configure the TScope entity.
-            builder.Entity<TScope>()
-                   .HasKey(scope => scope.Id);
+            //builder.Entity<TScope>()
+            //       .HasKey(scope => scope.Id);
 
             builder.Entity<TScope>()
                    .Property(scope => scope.ConcurrencyToken)
@@ -259,8 +262,8 @@ namespace Microsoft.Extensions.DependencyInjection
                    .ToTable("OpenIddictScopes");
 
             // Configure the TToken entity.
-            builder.Entity<TToken>()
-                   .HasKey(token => token.Id);
+            //builder.Entity<TToken>()
+            //       .HasKey(token => token.Id);
 
             builder.Entity<TToken>()
                    .Property(token => token.ConcurrencyToken)

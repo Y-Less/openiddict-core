@@ -23,7 +23,8 @@ namespace OpenIddict.Models
     /// <summary>
     /// Represents an OpenIddict scope.
     /// </summary>
-    public class OpenIddictScope<TKey> where TKey : IEquatable<TKey>
+    public class OpenIddictScope<TKey> : OpenIddictBase<TKey>
+        where TKey : IEquatable<TKey>
     {
         /// <summary>
         /// Gets or sets the concurrency token.
@@ -35,13 +36,7 @@ namespace OpenIddict.Models
         /// associated with the current scope.
         /// </summary>
         public virtual string Description { get; set; }
-
-        /// <summary>
-        /// Gets or sets the unique identifier
-        /// associated with the current scope.
-        /// </summary>
-        public virtual TKey Id { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the unique name
         /// associated with the current scope.
