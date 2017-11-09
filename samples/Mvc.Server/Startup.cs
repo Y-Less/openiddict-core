@@ -28,7 +28,8 @@ namespace Mvc.Server
             services.AddDbContext<ApplicationDbContext>(options =>
             {
                 // Configure the context to use Microsoft SQL Server.
-                options.UseSqlServer(configuration["Data:DefaultConnection:ConnectionString"]);
+                //options.UseSqlServer(configuration["Data:DefaultConnection:ConnectionString"]);
+                options.UseMongoDb("mongodb://localhost");
 
                 // Register the entity sets needed by OpenIddict.
                 // Note: use the generic overload if you need
@@ -52,17 +53,17 @@ namespace Mvc.Server
             });
 
             services.AddAuthentication()
-                .AddGoogle(options =>
-                {
-                    options.ClientId = "560027070069-37ldt4kfuohhu3m495hk2j4pjp92d382.apps.googleusercontent.com";
-                    options.ClientSecret = "n2Q-GEw9RQjzcRbU3qhfTj8f";
-                })
-
-                .AddTwitter(options =>
-                {
-                    options.ConsumerKey = "6XaCTaLbMqfj6ww3zvZ5g";
-                    options.ConsumerSecret = "Il2eFzGIrYhz6BWjYhVXBPQSfZuS4xoHpSSyD9PI";
-                })
+                //.AddGoogle(options =>
+                //{
+                //    options.ClientId = "560027070069-37ldt4kfuohhu3m495hk2j4pjp92d382.apps.googleusercontent.com";
+                //    options.ClientSecret = "n2Q-GEw9RQjzcRbU3qhfTj8f";
+                //})
+                //
+                //.AddTwitter(options =>
+                //{
+                //    options.ConsumerKey = "6XaCTaLbMqfj6ww3zvZ5g";
+                //    options.ConsumerSecret = "Il2eFzGIrYhz6BWjYhVXBPQSfZuS4xoHpSSyD9PI";
+                //})
 
                 .AddOAuthValidation();
 

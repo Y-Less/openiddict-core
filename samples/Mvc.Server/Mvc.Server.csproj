@@ -28,6 +28,7 @@
   <ItemGroup>
     <PackageReference Include="AspNet.Security.OAuth.Introspection" Version="$(AspNetContribOpenIdExtensionsVersion)" />
     <PackageReference Include="AspNet.Security.OAuth.Validation" Version="$(AspNetContribOpenIdExtensionsVersion)" />
+    <PackageReference Include="Blueshift.EntityFrameworkCore.MongoDb" Version="2.1.0-preview1-t0055ae0ab" />
     <PackageReference Include="Microsoft.AspNetCore" Version="$(AspNetCoreVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="$(AspNetCoreVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Twitter" Version="$(AspNetCoreVersion)" />
@@ -37,12 +38,20 @@
     <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="$(AspNetCoreVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="$(AspNetCoreVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="$(AspNetCoreVersion)" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.0-preview1-27512" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(AspNetCoreVersion)" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="2.1.0-preview1-27512" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="2.1.0-preview1-27512" />
     <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="$(AspNetCoreVersion)" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="$(AspNetCoreVersion)" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="$(AspNetCoreVersion)" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.0-preview1-27512" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.1.0-preview1-27512" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.1.0-preview1-27512" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.1.0-preview1-27512" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="$(AspNetCoreVersion)" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="$(AspNetCoreVersion)" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="2.1.0-preview1-27512" />
   </ItemGroup>
 
 </Project>

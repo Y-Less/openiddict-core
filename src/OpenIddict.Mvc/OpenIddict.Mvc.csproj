@@ -18,8 +18,16 @@
 
   <ItemGroup>
     <PackageReference Include="AspNet.Security.OpenIdConnect.Server" Version="$(AspNetContribOpenIdServerVersion)" />
+    <PackageReference Include="Blueshift.EntityFrameworkCore.MongoDB" Version="2.1.0-preview1-t0055ae0ab" />
     <PackageReference Include="JetBrains.Annotations" Version="$(JetBrainsVersion)" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="$(AspNetCoreVersion)" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.0-preview1-27512" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="2.1.0-preview1-27512" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.0-preview1-27512" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.1.0-preview1-27512" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.1.0-preview1-27512" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.1.0-preview1-27512" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="2.1.0-preview1-27512" />
   </ItemGroup>
 
 </Project>
