@@ -11,6 +11,7 @@ using Mvc.Server.Models;
 using Mvc.Server.Services;
 using OpenIddict.Core;
 using OpenIddict.Models;
+using MongoDB.Driver;
 
 namespace Mvc.Server
 {
@@ -24,12 +25,30 @@ namespace Mvc.Server
                 .Build();
 
             services.AddMvc();
+            services.AddEntityFrameworkMongoDb();
+            //services.AddApplicationDbContext();
+
+            //var connectionString = "mongodb://localhost";
+            ////optionsBuilder.UseMongoDb(connectionString);
+            //
+            //var mongoUrl = new MongoUrl(connectionString);
+            ////optionsBuilder.UseMongoDb(mongoUrl);
+            //
+            //MongoClientSettings mongoSettings = MongoClientSettings.FromUrl(mongoUrl);
+            ////settings.SslSettings = new SslSettings
+            ////{
+            ////    EnabledSslProtocols = System.Security.Authentication.SslProtocols.Tls12
+            ////};
+            ////optionsBuilder.UseMongoDb(settings);
+            //
+            //MongoClient mongoClient = new MongoClient(mongoSettings);
+            ////optionsBuilder.UseMongoDb(mongoClient);
 
             services.AddDbContext<ApplicationDbContext>(options =>
             {
                 // Configure the context to use Microsoft SQL Server.
                 //options.UseSqlServer(configuration["Data:DefaultConnection:ConnectionString"]);
-                options.UseMongoDb("mongodb://localhost");
+                //options.UseMongoDb(mongoClient);
 
                 // Register the entity sets needed by OpenIddict.
                 // Note: use the generic overload if you need
@@ -38,7 +57,7 @@ namespace Mvc.Server
             });
 
             // Register the Identity services.
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddIdentity<IdentityUser<string>, IdentityRole<string>>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 

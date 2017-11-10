@@ -14,16 +14,16 @@ namespace Mvc.Server.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<IdentityUser<string>> _userManager;
+        private readonly SignInManager<IdentityUser<string>> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ApplicationDbContext _applicationDbContext;
         private static bool _databaseChecked;
 
         public AccountController(
-            UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager,
+            UserManager<IdentityUser<string>> userManager,
+            SignInManager<IdentityUser<string>> signInManager,
             IEmailSender emailSender,
             ISmsSender smsSender,
             ApplicationDbContext applicationDbContext)
@@ -103,7 +103,7 @@ namespace Mvc.Server.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new IdentityUser<string> { UserName = model.Email, Email = model.Email };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -198,7 +198,7 @@ namespace Mvc.Server.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new IdentityUser<string> { UserName = model.Email, Email = model.Email };
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
@@ -449,7 +449,7 @@ namespace Mvc.Server.Controllers
             }
         }
 
-        private async Task<ApplicationUser> GetCurrentUserAsync()
+        private async Task<IdentityUser<string>> GetCurrentUserAsync()
         {
             return await _userManager.GetUserAsync(User);
         }

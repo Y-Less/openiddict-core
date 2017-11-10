@@ -30,14 +30,14 @@ namespace Mvc.Server
     {
         private readonly OpenIddictApplicationManager<OpenIddictApplication> _applicationManager;
         private readonly IOptions<IdentityOptions> _identityOptions;
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<IdentityUser<string>> _signInManager;
+        private readonly UserManager<IdentityUser<string>> _userManager;
 
         public AuthorizationController(
             OpenIddictApplicationManager<OpenIddictApplication> applicationManager,
             IOptions<IdentityOptions> identityOptions,
-            SignInManager<ApplicationUser> signInManager,
-            UserManager<ApplicationUser> userManager)
+            SignInManager<IdentityUser<string>> signInManager,
+            UserManager<IdentityUser<string>> userManager)
         {
             _applicationManager = applicationManager;
             _identityOptions = identityOptions;
@@ -229,7 +229,7 @@ namespace Mvc.Server
         #endregion
 
         private async Task<AuthenticationTicket> CreateTicketAsync(
-            OpenIdConnectRequest request, ApplicationUser user,
+            OpenIdConnectRequest request, IdentityUser<string> user,
             AuthenticationProperties properties = null)
         {
             // Create a new ClaimsPrincipal containing the claims that

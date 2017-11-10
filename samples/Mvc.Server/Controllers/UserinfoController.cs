@@ -13,9 +13,9 @@ namespace Mvc.Server.Controllers
     [Route("api")]
     public class UserinfoController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<IdentityUser<string>> _userManager;
 
-        public UserinfoController(UserManager<ApplicationUser> userManager)
+        public UserinfoController(UserManager<IdentityUser<string>> userManager)
         {
             _userManager = userManager;
         }

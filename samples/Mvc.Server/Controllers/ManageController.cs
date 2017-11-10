@@ -13,15 +13,15 @@ namespace Mvc.Server.Controllers
     [Authorize]
     public class ManageController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<IdentityUser<string>> _userManager;
+        private readonly SignInManager<IdentityUser<string>> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
 
         public ManageController(
-        UserManager<ApplicationUser> userManager,
-        SignInManager<ApplicationUser> signInManager,
+        UserManager<IdentityUser<string>> userManager,
+        SignInManager<IdentityUser<string>> signInManager,
         IEmailSender emailSender,
         ISmsSender smsSender,
         ILoggerFactory loggerFactory)
@@ -335,7 +335,7 @@ namespace Mvc.Server.Controllers
             Error
         }
 
-        private Task<ApplicationUser> GetCurrentUserAsync()
+        private Task<IdentityUser<string>> GetCurrentUserAsync()
         {
             return _userManager.GetUserAsync(User);
         }

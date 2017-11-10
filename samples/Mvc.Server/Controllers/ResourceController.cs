@@ -10,9 +10,9 @@ namespace Mvc.Server.Controllers
     [Route("api")]
     public class ResourceController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<IdentityUser<string>> _userManager;
 
-        public ResourceController(UserManager<ApplicationUser> userManager)
+        public ResourceController(UserManager<IdentityUser<string>> userManager)
         {
             _userManager = userManager;
         }

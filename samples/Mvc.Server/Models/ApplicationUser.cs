@@ -2,6 +2,7 @@
 
 namespace Mvc.Server.Models
 {
-    // Add profile data for application users by adding properties to the ApplicationUser class
-    public class ApplicationUser : IdentityUser { }
+    // Add profile data for application users by adding properties to the IdentityUser<string> class
+    //public class ApplicationUser : IdentityUser<string> { }
+    //public class ApplicationRole : IdentityRole<string> { }
 }
